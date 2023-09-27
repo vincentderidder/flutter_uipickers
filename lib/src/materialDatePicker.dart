@@ -125,7 +125,9 @@ class _MaterialDatePickerState extends State<MaterialDatePicker> {
             },
             child: Ink(
               color: widget.backgroundColor ?? Color(0xFFEAEAEB),
-              child: Text(formattedText, style: textStyle),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(formattedText, style: textStyle)),
             )));
   }
 }
