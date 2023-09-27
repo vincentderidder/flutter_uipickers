@@ -24,7 +24,9 @@ class MaterialDatePicker extends StatefulWidget {
       this.borderColor,
       this.borderWidth,
       this.cornerRadius,
-      this.fontSize})
+      this.fontSize,
+      this.dateFormatString,
+      this.timeFormatString})
       : super(key: key);
 
   /// The initially selected date. It must either fall between these dates, or be equal to one of them.
@@ -60,17 +62,24 @@ class MaterialDatePicker extends StatefulWidget {
   /// The font size of the selected item text.
   final double? fontSize;
 
+  /// The format of a date field
+  final String? dateFormatString;
+
+  /// The format of a time field
+  final String? timeFormatString;
+
   @override
   State<MaterialDatePicker> createState() => _MaterialDatePickerState();
 }
 
 class _MaterialDatePickerState extends State<MaterialDatePicker> {
-  static final dateFormat = DateFormat('MMM dd, yyyy');
-  static final timeFormat = DateFormat('hh:mm a');
   var date = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
+    DateFormat dateFormat =
+        DateFormat(widget.dateFormatString ?? 'MMM dd, yyyy');
+    DateFormat timeFormat = DateFormat(widget.timeFormatString ?? 'hh:mm a');
     date = widget.initialDate;
     final textStyle = TextStyle(
         color: widget.textColor ?? Colors.black,

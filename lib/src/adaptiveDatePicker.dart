@@ -35,7 +35,9 @@ class AdaptiveDatePicker extends StatelessWidget {
       this.tintColor,
       this.borderWidth,
       this.cornerRadius,
-      this.fontSize})
+      this.fontSize,
+      this.dateFormatString,
+      this.timeFormatString})
       : super(key: key);
 
   /// The initially selected date. It must either fall between these dates, or be equal to one of them.
@@ -78,6 +80,12 @@ class AdaptiveDatePicker extends StatelessWidget {
   /// When set to cupertino or adaptive it will instantinate a native platform picker when used with iOS.
   final AdaptiveDatePickerType? type;
 
+  /// The format of a date field
+  final String? dateFormatString;
+
+  /// The format of a time field
+  final String? timeFormatString;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -102,6 +110,8 @@ class AdaptiveDatePicker extends StatelessWidget {
       borderWidth: borderWidth,
       cornerRadius: cornerRadius,
       fontSize: fontSize,
+      dateFormatString: dateFormatString,
+      timeFormatString: timeFormatString,
     );
   }
 
