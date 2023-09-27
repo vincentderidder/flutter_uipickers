@@ -26,7 +26,8 @@ class MaterialDatePicker extends StatefulWidget {
       this.cornerRadius,
       this.fontSize,
       this.dateFormatString,
-      this.timeFormatString})
+      this.timeFormatString,
+      this.padding})
       : super(key: key);
 
   /// The initially selected date. It must either fall between these dates, or be equal to one of them.
@@ -67,6 +68,9 @@ class MaterialDatePicker extends StatefulWidget {
 
   /// The format of a time field
   final String? timeFormatString;
+
+  /// The padding for the widget
+  final EdgeInsets? padding;
 
   @override
   State<MaterialDatePicker> createState() => _MaterialDatePickerState();
@@ -125,9 +129,12 @@ class _MaterialDatePickerState extends State<MaterialDatePicker> {
             },
             child: Ink(
               color: widget.backgroundColor ?? Color(0xFFEAEAEB),
-              child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(formattedText, style: textStyle)),
+              child: Padding(
+                padding: widget.padding ?? EdgeInsets.zero,
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(formattedText, style: textStyle)),
+              ),
             )));
   }
 }

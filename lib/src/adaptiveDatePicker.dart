@@ -37,7 +37,8 @@ class AdaptiveDatePicker extends StatelessWidget {
       this.cornerRadius,
       this.fontSize,
       this.dateFormatString,
-      this.timeFormatString})
+      this.timeFormatString,
+      this.padding})
       : super(key: key);
 
   /// The initially selected date. It must either fall between these dates, or be equal to one of them.
@@ -86,6 +87,9 @@ class AdaptiveDatePicker extends StatelessWidget {
   /// The format of a time field
   final String? timeFormatString;
 
+  /// The padding for the widget
+  final EdgeInsets? padding;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -110,6 +114,7 @@ class AdaptiveDatePicker extends StatelessWidget {
       borderWidth: borderWidth,
       cornerRadius: cornerRadius,
       fontSize: fontSize,
+      padding: padding,
       dateFormatString: dateFormatString,
       timeFormatString: timeFormatString,
     );
